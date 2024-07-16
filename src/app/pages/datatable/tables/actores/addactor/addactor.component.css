@@ -1,0 +1,15 @@
+.input-group-append .fa {
+    margin-left: 5px;
+}
+
+.input-group-append .fa-times {
+    color: red;
+}
+
+.input-group-append .fa-check {
+    color: green;
+}
+
+.text-danger {
+    font-size: 0.875em;
+}

@@ -1,0 +1,108 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="card-title mb-0">Agregar Actor</h4>
+                </div>
+                <div class="card-body p-3">
+                    <form [formGroup]="actorForm" (ngSubmit)="enviarRegistro()">
+                        <div class="form-group">
+                            <label for="cod_act">ID del Actor</label>
+                            <div class="input-group">
+                                <input type="text" id="cod_act" class="form-control" formControlName="cod_act">
+                                <div class="input-group-append" *ngIf="actorForm.get('cod_act')?.invalid && (actorForm.get('cod_act')?.dirty || actorForm.get('cod_act')?.touched)">
+                                    <span class="input-group-text">
+                                        <i class="fa" [ngClass]="{
+                                            'fa-times text-danger': actorForm.get('cod_act')?.errors?.['required'] || actorForm.get('cod_act')?.errors?.['maxlength'],
+                                            'fa-check text-success': !actorForm.get('cod_act')?.errors
+                                        }"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div *ngIf="actorForm.get('cod_act')?.invalid && (actorForm.get('cod_act')?.dirty || actorForm.get('cod_act')?.touched)" class="text-danger">
+                                <small *ngIf="actorForm.get('cod_act')?.errors?.['required']">ID del Actor es requerido.</small>
+                                <small *ngIf="actorForm.get('cod_act')?.errors?.['maxlength']">ID del Actor no puede exceder 4 caracteres.</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nom_act">Nombre del Actor</label>
+                            <div class="input-group">
+                                <input type="text" id="nom_act" class="form-control" formControlName="nom_act">
+                                <div class="input-group-append" *ngIf="actorForm.get('nom_act')?.invalid && (actorForm.get('nom_act')?.dirty || actorForm.get('nom_act')?.touched)">
+                                    <span class="input-group-text">
+                                        <i class="fa" [ngClass]="{
+                                            'fa-times text-danger': actorForm.get('nom_act')?.errors?.['required'] || actorForm.get('nom_act')?.errors?.['maxlength'],
+                                            'fa-check text-success': !actorForm.get('nom_act')?.errors
+                                        }"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div *ngIf="actorForm.get('nom_act')?.invalid && (actorForm.get('nom_act')?.dirty || actorForm.get('nom_act')?.touched)" class="text-danger">
+                                <small *ngIf="actorForm.get('nom_act')?.errors?.['required']">Nombre del Actor es requerido.</small>
+                                <small *ngIf="actorForm.get('nom_act')?.errors?.['maxlength']">Nombre del Actor no puede exceder 50 caracteres.</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nom_rea_act">Nombre Real del Actor</label>
+                            <div class="input-group">
+                                <input type="text" id="nom_rea_act" class="form-control" formControlName="nom_rea_act">
+                                <div class="input-group-append" *ngIf="actorForm.get('nom_rea_act')?.invalid && (actorForm.get('nom_rea_act')?.dirty || actorForm.get('nom_rea_act')?.touched)">
+                                    <span class="input-group-text">
+                                        <i class="fa" [ngClass]="{
+                                            'fa-times text-danger': actorForm.get('nom_rea_act')?.errors?.['required'] || actorForm.get('nom_rea_act')?.errors?.['maxlength'],
+                                            'fa-check text-success': !actorForm.get('nom_rea_act')?.errors
+                                        }"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div *ngIf="actorForm.get('nom_rea_act')?.invalid && (actorForm.get('nom_rea_act')?.dirty || actorForm.get('nom_rea_act')?.touched)" class="text-danger">
+                                <small *ngIf="actorForm.get('nom_rea_act')?.errors?.['required']">Nombre Real del Actor es requerido.</small>
+                                <small *ngIf="actorForm.get('nom_rea_act')?.errors?.['maxlength']">Nombre Real del Actor no puede exceder 50 caracteres.</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fec_nac_act">Fecha de Nacimiento</label>
+                            <div class="input-group">
+                                <input type="date" id="fec_nac_act" class="form-control" formControlName="fec_nac_act">
+                                <div class="input-group-append" *ngIf="actorForm.get('fec_nac_act')?.invalid && (actorForm.get('fec_nac_act')?.dirty || actorForm.get('fec_nac_act')?.touched)">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-times text-danger"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div *ngIf="actorForm.get('fec_nac_act')?.invalid && (actorForm.get('fec_nac_act')?.dirty || actorForm.get('fec_nac_act')?.touched)" class="text-danger">
+                                <small>Fecha de Nacimiento es requerida.</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fec_mue_act">Fecha de Fallecimiento</label>
+                            <input type="date" id="fec_mue_act" class="form-control" formControlName="fec_mue_act">
+                        </div>
+                        <div class="form-group">
+                            <label for="naciona_act">Nacionalidad</label>
+                            <div class="input-group">
+                                <input type="text" id="naciona_act" class="form-control" formControlName="naciona_act">
+                                <div class="input-group-append" *ngIf="actorForm.get('naciona_act')?.invalid && (actorForm.get('naciona_act')?.dirty || actorForm.get('naciona_act')?.touched)">
+                                    <span class="input-group-text">
+                                        <i class="fa" [ngClass]="{
+                                            'fa-times text-danger': actorForm.get('naciona_act')?.errors?.['required'] || actorForm.get('naciona_act')?.errors?.['maxlength'],
+                                            'fa-check text-success': !actorForm.get('naciona_act')?.errors
+                                        }"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div *ngIf="actorForm.get('naciona_act')?.invalid && (actorForm.get('naciona_act')?.dirty || actorForm.get('naciona_act')?.touched)" class="text-danger">
+                                <small *ngIf="actorForm.get('naciona_act')?.errors?.['required']">Nacionalidad es requerida.</small>
+                                <small *ngIf="actorForm.get('naciona_act')?.errors?.['maxlength']">Nacionalidad no puede exceder 50 caracteres.</small>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary mt-3" [disabled]="actorForm.invalid">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
